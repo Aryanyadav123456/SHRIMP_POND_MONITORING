@@ -2,7 +2,6 @@ streamlit==1.24.0
 pandas
 numpy
 openai
-google.generativeai
 sklearn
 matplotlib
 seaborn
@@ -10,3 +9,10 @@ plotly
 google-genai
 python-dotenv
 scikit-learn
+streamlit
+pandas
+numpy
+scikit-learn
+google-generativeai
+faiss-cpu
+

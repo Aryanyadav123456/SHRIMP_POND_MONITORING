@@ -45,7 +45,7 @@ st.set_page_config(page_title="🦐 Shrimp Pond Monitoring Agent", layout="wide"
 st.title("🦐 Shrimp Pond Performance Monitoring – Hybrid AI Chatbot")
 st.caption("Ask anything: growth issues, FCR, survival, pond ranking, harvest status, recommendations…")
 
-DATA_FILE = "data/data_sample.json"
+DATA_FILE = "data_sample.json"
 
 # ---------------------------
 # Session state

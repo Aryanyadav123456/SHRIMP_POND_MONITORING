@@ -1,0 +1,12 @@
+streamlit==1.24.0
+pandas
+numpy
+openai
+google.generativeai
+scikit-learn
+matplotlib
+seaborn
+plotly
+google-genai
+python-dotenv
+scikit-learn

@@ -19,7 +19,7 @@ if os.path.exists("gemini.txt"):
 # ---------------------------
 # Constants
 # ---------------------------
-EMBEDDINGS_FILE = "data/embeddings.pkl"
+EMBEDDINGS_FILE = "embeddings.pkl"
 
 EMBED_MODEL = "text-embedding-004"     # ALWAYS 768 dimensions
 LLM_MODEL = "gemini-2.5-flash"         # Chat model
@@ -177,3 +177,4 @@ def query_llm(df, query, top_k=5):
     }
 
     return answer_with_llm(params)
+

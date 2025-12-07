@@ -3,7 +3,7 @@ pandas
 numpy
 openai
 google.generativeai
-scikit-learn
+sklearn
 matplotlib
 seaborn
 plotly

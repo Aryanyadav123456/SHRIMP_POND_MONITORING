@@ -12,7 +12,7 @@ warnings.filterwarnings("ignore")
 # ------------------------------
 # Load pond data
 # ------------------------------
-def load_data(file_path: str = "data_sample.json") -> pd.DataFrame:
+def load_data(file_path: str = "data/data_sample.json") -> pd.DataFrame:
     """
     Load pond data from CSV or JSON with fallback.
     Handles JSON with top-level 'data' key.

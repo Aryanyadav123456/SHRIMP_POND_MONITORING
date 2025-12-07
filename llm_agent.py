@@ -5,7 +5,8 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 import google.generativeai as genai
-
+import streamlit as st
+import google.generativeai as genai
 # ---------------------------
 # Load API Key from gemini.txt
 # ---------------------------
@@ -28,7 +29,9 @@ LLM_MODEL = "gemini-2.5-flash"         # Chat model
 # ---------------------------
 # Configure Gemini
 # ---------------------------
-genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
+
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+
 
 
 # ---------------------------
@@ -177,4 +180,5 @@ def query_llm(df, query, top_k=5):
     }
 
     return answer_with_llm(params)
+
 

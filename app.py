@@ -19,7 +19,6 @@ load_dotenv()
 
 # Access the key
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-ALPHA_VANTAGE_KEY = os.getenv("ALPHA_VANTAGE_KEY")
 
 print(GEMINI_API_KEY)  # just to test, remove later
 

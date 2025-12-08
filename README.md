@@ -46,22 +46,23 @@ Supports queries such as:
 
 ---
 ###  Shrimp Pond Monitoring – System Architecture (Clear & Professional)
-  ```mermaid
+
+
+```mermaid
 flowchart TD
     A[User UI<br>(Streamlit Frontend)] -->|User Query| B[Orchestration Layer<br>(app.py / backend)]
-    B -->|Route Based on Query Type| C[Rule-Based Engine<br>(utils.py → query_ponds_advanced)]
-    B -->|Route Based on Query Type| D[Embedding Retrieval<br>(llm_agent.py → build_embeddings, load_index, search)]
-    B -->|Route Based on Query Type| E[Gemini LLM Reasoning<br>(gemini-2.5-flash, answer generation)]
-
-    C -->|Exact Answer| F[Final Answer to User UI]
-    D -->|Top-K Pond Context| G[Context + Query]
-    E -->|Top-K Pond Context| G
-    C -->|If rule-based fails| G
-    G --> F
     
-             
-
-## Repository Structure
+    B -->|Route Query| C[Rule-Based Engine<br>(utils.py → query_ponds_advanced)]
+    B -->|Route Query| D[Embedding Retrieval<br>(llm_agent.py → build_embeddings, load_index, search)]
+    B -->|Route Query| E[Gemini LLM Reasoning<br>(gemini-2.5-flash, answer generation)]
+    
+    C -->|Exact Answer| F[Final Answer to User UI<br>(Text / Voice)]
+    C -->|If fails| G[Context + Query]
+    D --> G
+    E --> G
+    G --> F
+ ---
+### Repository Structure
 
 SHRIMP_POND_MONITORING/
 │── .devcontainer/ # Development container settings

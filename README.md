@@ -46,36 +46,20 @@ Supports queries such as:
 
 ---
 ###  Shrimp Pond Monitoring – System Architecture (Clear & Professional)
-                     ┌──────────────────────────┐
-                     │         User UI          │
-                     │  (Streamlit Frontend)    │
-                     └────────────┬─────────────┘
-                                  │  User Query
-                                  ▼
-                     ┌──────────────────────────┐
-                     │     Orchestration Layer  │
-                     │     (app.py / backend)   │
-                     └────────────┬─────────────┘
-                    Route Based on Query Type
- ┌────────────────────────────────┼──────────────────────────────────┐
- │                                │                                  │
- ▼                                ▼                                  ▼
+  ```mermaid
+flowchart TD
+    A[User UI<br>(Streamlit Frontend)] -->|User Query| B[Orchestration Layer<br>(app.py / backend)]
+    B -->|Route Based on Query Type| C[Rule-Based Engine<br>(utils.py → query_ponds_advanced)]
+    B -->|Route Based on Query Type| D[Embedding Retrieval<br>(llm_agent.py → build_embeddings, load_index, search)]
+    B -->|Route Based on Query Type| E[Gemini LLM Reasoning<br>(gemini-2.5-flash, answer generation)]
 
-┌─────────────────────┐   ┌──────────────────────┐    ┌─────────────────────────┐
-│  Rule-Based Engine   │   │  Embedding Retrieval │    │   Gemini LLM Reasoning  │
-│ (utils.py → query_   │   │ (llm_agent.py →      │    │  (gemini-2.5-flash)      │
-│ ponds_advanced)      │   │  build embeddings,   │    │  answer generation       │
-└─────────────────────┘   │  load_index, search) │    └─────────────────────────┘
-        │                  └──────────────────────┘               ▲
-        │                        │  Top-K Pond Context            │
-        └──── Exact Answer ─────►│                                │
-                                 │  IF rule-based fails →         │
-                                 └──────────────┬─────────────────┘
-                                                │ Context + Query
-                                                ▼
-                                  ┌────────────────────────────┐
-                                  │  Final Answer to User UI  │
-                                  └────────────────────────────┘
+    C -->|Exact Answer| F[Final Answer to User UI]
+    D -->|Top-K Pond Context| G[Context + Query]
+    E -->|Top-K Pond Context| G
+    C -->|If rule-based fails| G
+    G --> F
+    
+             
 
 ## Repository Structure
 

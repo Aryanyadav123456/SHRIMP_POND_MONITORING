@@ -54,11 +54,10 @@ SHRIMP_POND_MONITORING/
 │── app.py # Streamlit UI
 │── utils.py # KPI + rule-based QA logic
 │── llm_agent.py # Embedding generation + FAISS index
-│── data/
-│ └── data_sample.json # Dataset
+│── data_sample.json # Dataset
 │── embeddings.pkl # Auto-generated embeddings
 │── requirements.txt # Dependencies
-│── Untitled129.py # Additional script (optional)
+│── ipnb.py # Additional script (optional)
 
 
 ## Installation
@@ -66,8 +65,6 @@ SHRIMP_POND_MONITORING/
 ### 1. Install dependencies
 pip install -r requirements.txt
 
-shell
-Copy code
 
 ### 2. Run the application
 streamlit run app.py

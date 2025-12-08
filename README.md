@@ -45,6 +45,37 @@ Supports queries such as:
 - Option to force-rebuild embeddings
 
 ---
+###  Shrimp Pond Monitoring – System Architecture (Clear & Professional)
+                     ┌──────────────────────────┐
+                     │         User UI          │
+                     │  (Streamlit Frontend)    │
+                     └────────────┬─────────────┘
+                                  │  User Query
+                                  ▼
+                     ┌──────────────────────────┐
+                     │     Orchestration Layer  │
+                     │     (app.py / backend)   │
+                     └────────────┬─────────────┘
+                    Route Based on Query Type
+ ┌────────────────────────────────┼──────────────────────────────────┐
+ │                                │                                  │
+ ▼                                ▼                                  ▼
+
+┌─────────────────────┐   ┌──────────────────────┐    ┌─────────────────────────┐
+│  Rule-Based Engine   │   │  Embedding Retrieval │    │   Gemini LLM Reasoning  │
+│ (utils.py → query_   │   │ (llm_agent.py →      │    │  (gemini-2.5-flash)      │
+│ ponds_advanced)      │   │  build embeddings,   │    │  answer generation       │
+└─────────────────────┘   │  load_index, search) │    └─────────────────────────┘
+        │                  └──────────────────────┘               ▲
+        │                        │  Top-K Pond Context            │
+        └──── Exact Answer ─────►│                                │
+                                 │  IF rule-based fails →         │
+                                 └──────────────┬─────────────────┘
+                                                │ Context + Query
+                                                ▼
+                                  ┌────────────────────────────┐
+                                  │  Final Answer to User UI  │
+                                  └────────────────────────────┘
 
 ## Repository Structure
 

@@ -87,7 +87,6 @@ Embeddings are generated using:
 - Saved file: `embeddings.pkl`
 
 ### Force rebuild embeddings
-```python
 from llm_agent import build_embeddings
 build_embeddings(df, force=True)
 

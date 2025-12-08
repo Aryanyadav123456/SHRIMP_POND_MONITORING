@@ -3,8 +3,6 @@
 This repository contains a complete demo solution for the Shrimp Pond Performance Monitoring assignment.  
 It provides a clean Streamlit interface, KPI analytics, and an AI assistant using rule-based logic with optional embedding-based retrieval.
 
----
-
 ## Project Overview
 
 This project analyzes shrimp pond performance using the dataset `data_sample.json`. It includes:
@@ -17,7 +15,6 @@ This project analyzes shrimp pond performance using the dataset `data_sample.jso
 
 The solution runs fully offline (except during optional embedding generation).
 
----
 
 ## Key Features
 
@@ -77,15 +74,11 @@ streamlit run app.py
 
 
 
-The app loads data from:  
+
+### The app loads data from:  
 `data/data_sample.json`
 
-The app loads data from:  
-`data/data_sample.json`
-
----
-
-## Embedding System (Optional)
+## Embedding System 
 
 Embeddings are generated using:
 
@@ -98,31 +91,7 @@ Embeddings are generated using:
 from llm_agent import build_embeddings
 build_embeddings(df, force=True)
 
-
-## Embedding System (Optional)
-
-Embeddings are generated using:
-
-- Model: `text-embedding-004`
-- Dimension: 768
-- Saved file: `embeddings.pkl`
-
-### Force rebuild embeddings
-```python
-from llm_agent import build_embeddings
-build_embeddings(df, force=True)
-Load FAISS index
-python
-Copy code
-from llm_agent import load_index
-index = load_index()
-Embeddings are regenerated only if:
-
-force=True is passed, or
-
-no existing embeddings.pkl is found
-
-Notes
+### Notes
 The AI assistant is rule-based for predictable responses.
 
 Embedding search is optional and enhances semantic retrieval.
@@ -130,8 +99,7 @@ Embedding search is optional and enhances semantic retrieval.
 Application runs offline unless embeddings are rebuilt.
 
 Intended for demonstration, assignment submission, and prototyping.
-
-Purpose of This Repository
+### Purpose of This Repository
 This project demonstrates:
 
 KPI extraction and trend analysis
